@@ -17,4 +17,4 @@ Running the project
 
 Project Developer
 ----------------
-Deeptha
+Sajal Agrawal
