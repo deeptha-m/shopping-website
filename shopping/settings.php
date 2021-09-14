@@ -1,6 +1,7 @@
 <?php
     session_start();
     require 'connection.php';
+    require 'config.php';
     if(!isset($_SESSION['email'])){
         header('location:index.php');
     }
@@ -9,7 +10,7 @@
 <html>
     <head>
         <link rel="shortcut icon" href="img/lifestyleStore.png" />
-        <title>Lifestyle Store</title>
+        <title><?php echo $lang['title'] ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- latest compiled and minified CSS -->
@@ -30,7 +31,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <h1>Change Password</h1>
+                        <h1><?php echo $lang['chpswrd'] ?></h1>
                         <form method="post" action="setting_script.php">
                             <div class="form-group">
                                 <input type="password" class="form-control" name="oldPassword" placeholder="Old Password">
@@ -49,11 +50,10 @@
                 </div>
             </div>
             <br><br><br><br><br>
-           <footer class="footer">
-               <div class="container">
-               
-               </div>
-           </footer>
+           <div class= "footer">
+            <a href = "settings.php?lang=en"><?php echo $lang['lang-en'] ?> </a> | <a href = "settings.php?lang=jp"> <?php echo $lang['lang-jp'] ?></a>
+         </div>
+         
         </div>
     </body>
 </html>

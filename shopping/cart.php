@@ -1,6 +1,7 @@
 <?php
     session_start();
     require 'connection.php';
+    require 'config.php';
     if(!isset($_SESSION['email'])){
         header('location: login.php');
     }
@@ -26,7 +27,7 @@
 <html>
     <head>
         <link rel="shortcut icon" href="img/lifestyleStore.png" />
-        <title>Shopping-Store </title>
+        <title><?php echo $lang['title'] ?> </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- latest compiled and minified CSS -->
@@ -48,7 +49,7 @@
                 <table class="table table-bordered table-striped">
                     <tbody>
                         <tr>
-                            <th>Item Number</th><th>Item Name</th><th>Price</th><th></th>
+                            <th><?php echo $lang['itemno'] ?></th><th><?php echo $lang['itemname'] ?></th><th><?php echo $lang['itemprice'] ?></th><th></th>
                         </tr>
                        <?php 
                         $user_products_result=mysqli_query($con,$user_products_query) or die(mysqli_error($con));
@@ -59,20 +60,20 @@
                          ?>
                         <tr>
                             <th><?php echo $counter ?></th><th><?php echo $row['name']?></th><th><?php echo $row['price']?></th>
-                            <th><a href='cart_remove.php?id=<?php echo $row['id'] ?>'>Remove</a></th>
+                            <th><a href='cart_remove.php?id=<?php echo $row['id'] ?>'><?php echo $lang['remove'] ?></a></th>
                         </tr>
                        <?php $counter=$counter+1;}?>
                         <tr>
-                            <th></th><th>Total</th><th>Rs <?php echo $sum;?>/-</th><th><a href="success.php?id=<?php echo $user_id?>" class="btn btn-primary">Confirm Order</a></th>
+                            <th></th><th><?php echo $lang['total'] ?></th><th><?php echo $lang['Rs'] ?><?php echo $sum;?>/-</th><th><a href="success.php?id=<?php echo $user_id?>" class="btn btn-primary"><?php echo $lang['confirm'] ?></a></th>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <br><br><br><br><br><br><br><br><br><br>
-            <footer class="footer">
-               <div class="container">
-                </div>
-           </footer>
+            <div class= "footer">
+            <a href = "cart.php?lang=en"><?php echo $lang['lang-en'] ?> </a> | <a href = "cart.php?lang=jp"> <?php echo $lang['lang-jp'] ?></a>
+         </div>
+         
         </div>
     </body>
 </html>

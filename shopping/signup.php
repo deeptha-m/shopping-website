@@ -1,5 +1,6 @@
 <?php
     require 'connection.php';
+    require 'config.php';
     session_start();
     if(isset($_SESSION['email'])){
         header('location: products.php');
@@ -10,7 +11,7 @@
 <html>
     <head>
         <link rel="shortcut icon" href="img/lifestyleStore.png" />
-        <title>Lifestyle Store</title>
+        <title><?php echo $lang['title'] ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- latest compiled and minified CSS -->
@@ -31,7 +32,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <h1><b>SIGN UP</b></h1>
+                        <h1><b><?php echo $lang['signup'] ?></b></h1>
                         <form method="post" action="user_registration_script.php">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="name" placeholder="Name" required="true">
@@ -59,10 +60,10 @@
                 </div>
             </div>
             <br><br><br><br><br><br>
-           <footer class="footer">
-               <div class="container">
-               </div>
-           </footer>
+           <div class= "footer">
+            <a href = "signup.php?lang=en"><?php echo $lang['lang-en'] ?> </a> | <a href = "signup.php?lang=jp"> <?php echo $lang['lang-jp'] ?></a>
+         </div>
+         
 
         </div>
     </body>

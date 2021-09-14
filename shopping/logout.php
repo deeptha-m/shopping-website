@@ -2,12 +2,13 @@
     session_start();
     session_unset();
     session_destroy();
+    require 'config.php';
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="shortcut icon" href="img/lifestyleStore.png" />
-        <title>Lifestyle Store</title>
+        <title><?php echo $lang['title'] ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- latest compiled and minified CSS -->
@@ -31,17 +32,16 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading"></div>
                             <div class="panel-body">
-                                <p>You have been logged out. <a href="login.php">Login again.</a></p>
+                                <p> <?php echo $lang['msg1'] ?><a href="login.php"><?php echo $lang['msg2'] ?></a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-               <div class="container">
-               
-               </div>
-           </footer>
+            <div class= "footer">
+            <a href = "logout.php?lang=en"><?php echo $lang['lang-en'] ?> </a> | <a href = "logout.php?lang=jp"> <?php echo $lang['lang-jp'] ?></a>
+         </div>
+         
         </div>
     </body>
 </html>

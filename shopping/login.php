@@ -1,12 +1,13 @@
 <?php
     require 'connection.php';
+    require 'config.php';
     session_start();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="shortcut icon" href="img/lifestyleStore.png" />
-        <title>Lifestyle Store</title>
+        <title><?php echo $lang['title'] ?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- latest compiled and minified CSS -->
@@ -29,10 +30,10 @@
                     <div class="col-xs-6 col-xs-offset-3">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3>LOGIN</h3>
+                                <h3><?php echo $lang['login'] ?></h3>
                             </div>
                             <div class="panel-body">
-                                <p>Login to make a purchase.</p>
+                                <p><?php echo $lang['warning1'] ?></p>
                                 <form method="post" action="login_submit.php">
                                     <div class="form-group">
                                         <input type="email" class="form-control" name="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
@@ -45,17 +46,16 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="panel-footer">Don't have an account yet? <a href="signup.php">Register</a></div>
+                            <div class="panel-footer"><?php echo $lang['warning2'] ?><a href="signup.php"><?php echo $lang['register'] ?></a></div>
                         </div>
                     </div>
                 </div>
            </div>
            <br><br><br><br><br>
-           <footer class="footer">
-               <div class="container">
-               
-               </div>
-           </footer>
+           <div class= "footer">
+            <a href = "login.php?lang=en"><?php echo $lang['lang-en'] ?> </a> | <a href = "login.php?lang=jp"> <?php echo $lang['lang-jp'] ?></a>
+         </div>
+         
         </div>
     </body>
 </html>
